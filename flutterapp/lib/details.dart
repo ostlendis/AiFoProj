@@ -71,7 +71,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
           // Interests
           Column(
             children: [
-              TextFieldTags(
+              TextFieldTags<String>( // TODO klappet ned
                   textSeparators: const [' ', ','],
                   validator: (String tag){
                     return null;
