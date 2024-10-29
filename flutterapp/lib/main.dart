@@ -1,8 +1,12 @@
 import 'package:ai_client/details.dart';
+import 'package:dart_openai/dart_openai.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+Future<void> main() async {
+  await dotenv.load(fileName: ".env");
+  OpenAI.apiKey = dotenv.env['API']!;
+  OpenAI.organization = "org-l7LAlNiV90lRSOKFIx8vUvDt";
   runApp(const MyApp());
 }
 
@@ -60,11 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: DetailsWidget(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: null,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
