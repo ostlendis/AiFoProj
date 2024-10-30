@@ -112,7 +112,7 @@ Future<GiftResponse> giftResponse(RecDetails details) async {
           "type": "object"
         }
       }
-          """, // TODO
+          """,
       ),
     ],
     role: OpenAIChatMessageRole.assistant,
