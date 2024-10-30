@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.9.17)  24 OCT 2024 13:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.9.17)  30 OCT 2024 10:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,7 +6,23 @@ entering extended mode
 (report.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-13>
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \textbf{â€¢}
+                \documentclass{layout/ost-report}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 (layout/ost-report.cls
+Overfull \hbox (25.7486pt too wide) in paragraph at lines 1--14
+[]\TS1/cmr/bx/n/10 ˆ 
+ []
+
 Document Class: layout/ost-report 27-12-2023 v1.0 OST Report Class
 (C:\Program Files\MiKTeX\tex/latex/base\book.cls
 Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
@@ -25,7 +41,7 @@ File: bk10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
-)
+ [1{C:/Users/safesyrup/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}])
 (C:\Users\safesyrup\AppData\Roaming\MiKTeX\tex/latex/mathtools\mathtools.sty
 Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
 
@@ -1564,7 +1580,7 @@ Package biblatex Info: Reference segment=0 on input line 16.
 rypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
-<figures/christmas-tree.jpeg, id=38, 2009.5075pt x 3011.25pt>
+<figures/christmas-tree.jpeg, id=43, 2009.5075pt x 3011.25pt>
 File: figures/christmas-tree.jpeg Graphic file (type jpg)
 <use figures/christmas-tree.jpeg>
 Package pdftex.def Info: figures/christmas-tree.jpeg  used on input line 35.
@@ -1579,7 +1595,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<layout/ost/ost-logo-de.png, id=39, 149.30981pt x 83.76093pt>
+<layout/ost/ost-logo-de.png, id=44, 149.30981pt x 83.76093pt>
 File: layout/ost/ost-logo-de.png Graphic file (type png)
 <use layout/ost/ost-logo-de.png>
 Package pdftex.def Info: layout/ost/ost-logo-de.png  used on input line 35.
@@ -1638,9 +1654,8 @@ File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
 ) [1
 
 
-{C:/Users/safesyrup/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Progra
-m Files/MiKTeX/fonts/enc/dvips/base/8r.enc} <./figures/christmas-tree.jpeg> <./
-layout/ost/ost-logo-de.png>] (frontmatter/title-report.tex
+{C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc} <./figures/christmas-tree
+.jpeg> <./layout/ost/ost-logo-de.png>] (frontmatter/title-report.tex
 Underfull \hbox (badness 10000) in paragraph at lines 52--54
 []|\T1/qhv/m/n/10 (+20) https://www.pexels.com/photo/christmas-christmas-tree-g
 ifts-tree-
@@ -1650,7 +1665,7 @@ ifts-tree-
 
 pdfTeX warning: pdflatex (file ./layout/ost/ost-logo-de.pdf): PDF inclusion: fo
 und PDF version <1.7>, but at most version <1.5> allowed
-<layout/ost/ost-logo-de.pdf, id=49, 149.31012pt x 83.7611pt>
+<layout/ost/ost-logo-de.pdf, id=54, 149.31012pt x 83.7611pt>
 File: layout/ost/ost-logo-de.pdf Graphic file (type pdf)
 <use layout/ost/ost-logo-de.pdf>
 Package pdftex.def Info: layout/ost/ost-logo-de.pdf  used on input line 60.
@@ -1737,7 +1752,7 @@ LaTeX Font Info:    Font shape `T1/npxtt/m/it' in size <10> not available
 (Font)              Font shape `T1/npxtt/m/sl' tried instead on input line 22.
 LaTeX Font Info:    Font shape `T1/npxtt/m/sl' will be
 (Font)              scaled to size 10.0pt on input line 22.
-<figures/ost-campus-rj.jpg, id=102, 1315.91624pt x 877.2775pt>
+<figures/ost-campus-rj.jpg, id=107, 1315.91624pt x 877.2775pt>
 File: figures/ost-campus-rj.jpg Graphic file (type jpg)
 <use figures/ost-campus-rj.jpg>
 Package pdftex.def Info: figures/ost-campus-rj.jpg  used on input line 26.
@@ -1798,27 +1813,29 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45599 strings out of 474462
- 881669 string characters out of 5752686
+ 45606 strings out of 474462
+ 881748 string characters out of 5752686
  2066998 words of memory out of 5000000
- 67103 multiletter control sequences out of 15000+600000
- 638949 words of font info for 139 fonts, out of 8000000 for 9000
+ 67107 multiletter control sequences out of 15000+600000
+ 639950 words of font info for 142 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,11n,107p,1197b,1440s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/safesyrup/AppData/Roaming/MiKTeX/fonts/type1/public/newpx/NewPXMI.p
-fb><C:/Users/safesyrup/AppData/Roaming/MiKTeX/fonts/type1/public/newpx/NewPXMI_
-gnu.pfb><C:/Users/safesyrup/AppData/Roaming/MiKTeX/fonts/type1/public/tex-gyre/
-qhvb.pfb><C:/Users/safesyrup/AppData/Roaming/MiKTeX/fonts/type1/public/tex-gyre
-/qhvr.pfb><C:/Users/safesyrup/AppData/Roaming/MiKTeX/fonts/type1/public/tex-gyr
-e/qhvri.pfb><C:/Users/safesyrup/AppData/Roaming/MiKTeX/fonts/type1/public/txfon
-ts/t1xtt.pfb><C:/Users/safesyrup/AppData/Roaming/MiKTeX/fonts/type1/public/txfo
-nts/t1xtt.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/
-Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/safesyrup/Ap
-pData/Roaming/MiKTeX/fonts/type1/public/newpx/zplr.pfb>
-Output written on C:\Schuel\AiFo\AiFoProj\documentation\build\report.pdf (12 pa
-ges, 3231536 bytes).
+ <C:\Users\safesyrup\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
+tcbx1000.pk><C:/Users/safesyrup/AppData/Roaming/MiKTeX/fonts/type1/public/newpx
+/NewPXMI.pfb><C:/Users/safesyrup/AppData/Roaming/MiKTeX/fonts/type1/public/newp
+x/NewPXMI_gnu.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10
+.pfb><C:/Users/safesyrup/AppData/Roaming/MiKTeX/fonts/type1/public/tex-gyre/qhv
+b.pfb><C:/Users/safesyrup/AppData/Roaming/MiKTeX/fonts/type1/public/tex-gyre/qh
+vr.pfb><C:/Users/safesyrup/AppData/Roaming/MiKTeX/fonts/type1/public/tex-gyre/q
+hvri.pfb><C:/Users/safesyrup/AppData/Roaming/MiKTeX/fonts/type1/public/txfonts/
+t1xtt.pfb><C:/Users/safesyrup/AppData/Roaming/MiKTeX/fonts/type1/public/txfonts
+/t1xtt.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Pro
+gram Files/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/safesyrup/AppDa
+ta/Roaming/MiKTeX/fonts/type1/public/newpx/zplr.pfb>
+Output written on C:\Schuel\AiFo\AiFoProj\documentation\build\report.pdf (13 pa
+ges, 3240793 bytes).
 PDF statistics:
- 219 PDF objects out of 1000 (max. 8388607)
+ 233 PDF objects out of 1000 (max. 8388607)
  49 named destinations out of 1000 (max. 500000)
  37473 words of extra memory for PDF output out of 42996 (max. 10000000)
 
