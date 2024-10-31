@@ -1,4 +1,63 @@
 \chapter{Introduction}
 \label{chapter:introduction}
 
-\emph{An introduction... \cite{example-article}}
+\emph{Introduction}
+
+In this document we will describe the process of implementing the Miniproject required for the AI-Foundaitions module.
+It is expected to generate at least 3 ideas that make use of the GPT-assistant and build an application around that idea.
+
+The first step will describe the generation and thinking process for the ideas and the selection of one idea based on evaluaiton.
+We will then continue on refining the idea and create specifications that the applcation must implement.
+\emph{additional text}
+
+\medskip
+
+\emph{additional text}
+
+We wanted to implement an idea that could actually have a practical usecase and one that we would personally use.
+We did some brainstorming together and came up with things that we struggle with regularly and where a Large Language Model could be of help.
+Within a short amount of time we came up with three ideas:
+\begin{itemize}
+    \item Food recipe generator that returns recipes based on what kind of food you have at home (would be the user input)
+    \item Since Christmas is arriving soon: gift idea generator based on what properties the gift receiver has
+    \item Belt balancer generator for the game \href{https://www.factorio.com}{Factorio} \footnote{Not affiliated with the product however you should try it anyway}
+\end{itemize}
+
+Immediately, we thought about the practicality and implementation side of things. All three of the ideas were well usable, however one stood out on the complexity and possibilty of implementation.
+A belt balancer in factorio serves the use of distributing X number of input belts or conveyors (that transport materials) to Y number of outputs.
+In the game, you can import structures such as a belt balancer in the form of a blueprint string.
+This string looks like glibberish to the human eye because the game first decodes the string using base64 and afterwards uses zlib inflate to finally get the json representation of the individual strucutres that will be placed in the game to complete the balancer.
+To many this will sound like an application where a Large Language Model will no work very well to generate these complex and very error intolerant string, and you are correct!
+We generated such a string 10 times and not once did the string import work in the game itself.
+This idea was not going to work well so it is eliminated.
+
+We decided on the following criterias for evaluating which idea to choose:
+\begin{itemize}
+    \item practical use (weight 30)
+    \item ease of implementation (weight 5)
+    \item beneficial (weight 20)
+    \item originality (weight 10)
+\end{itemize}
+
+\begin{table}[!h]
+    \begin{tabular}{|lllll|r|}
+        \hline
+        idea                & practical use   & ease of implementation & beneficial      & originality     & total score  \\
+        \hline
+        Recipe generator    & 5 * \textbf{30} & 8 * \textbf{5}         & 7 * \textbf{20} & 5 * \textbf{10} & \textbf{400} \\
+        \hline
+        Gift Idea Generator & 7 * \textbf{30} & 8 * \textbf{5}         & 9 * \textbf{20} & 8 * \textbf{10} & \textbf{510} \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Since the Gift Idea Generator received more points, this is what we chose for the project.
+
+Before starting to implement the idea, we first decided on specifications that the application schould meet.
+We discussed ideas and boundries and agreed on the following:
+The application should take three parameters as inputs from the user: Gender, Age and personal interests
+It should be available on mobile to be easaly useable when you are on your way out.
+When the user presses the button to generate the ideas upon entering the parameters, he should receive 5 gifting ideas in text form.
+
+
+

@@ -1,5 +1,5 @@
-\chapter{Implementation}
-\label{chapter:implementation}
+\chapter{Implementation: Frontend}
+\label{chapter:implementation-frontend}
 
 To create an Application which can integrate into the daily lifes of someone, we will use the Flutter Technology Stack to create Software which can be accessed from many different platforms. For Developement, we focused on the usage of the Application on an Android Mobile Phone, however if we would like to expand our Application onto different plattforms, it would not require a lot of additional work.
 
@@ -22,14 +22,15 @@ Because we already defined the different Inputs which the user has access to, as
 			\node [font=\Large] at (6,14) {Flutter Android App};
 			\draw  (15.75,19) ellipse (3.75cm and 1.25cm) node {\Large OpenAI API} ;
 			\node [font=\Large] at (11.5,9.75) {};
-			\draw [->, >=Stealth] (15,14) -- (15,17.75)node[pos=0.45,undefined, fill=white]{User Request};
-			\draw [->, >=Stealth] (16.75,17.75) -- (16.75,14)node[pos=0.3,undefined, fill=white]{JSON Response};
+			\draw [->, >=Stealth] (15,14) -- (15,17.75)node[pos=0.45, fill=white]{User Request};
+			\draw [->, >=Stealth] (16.75,17.75) -- (16.75,14)node[pos=0.3, fill=white]{JSON Response};
 		\end{circuitikz}
 	}%
 
 	\caption{Planned architecture of the App}
 	\label{fig:architecture}
 \end{figure}
+
 
 Figure~\ref{fig:architecture} describes the planned architecture of the Flutter App. It has two main screens, which the User is guided throug:
 \begin{enumerate}
