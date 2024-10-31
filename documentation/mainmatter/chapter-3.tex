@@ -34,7 +34,7 @@ Figure~\ref{fig:architecture} describes the planned architecture of the Flutter 
 	\item In the \texttt{DetailsView}, the user specifies various attributes about the person they wish to gift (referred to as the "Recipient").
 	\item When the user submits this information, all gift-related details are passed to the \texttt{ResultsView}.
 	\item The \texttt{ResultsView} then forwards the received information to the API Manager, which formats it into a prompt for the OpenAI API.
-	\item The OpenAI Assistant processes the request and returns a response as a JSON object (see Section~\ref{sec:backend} for more details).
+	\item The OpenAI Assistant processes the request and returns a response as a JSON object (see Section~\ref{chapter:backend} for more details).
 	\item The API Manager receives the JSON object, extracts the relevant information, and sends it to the \texttt{ResultsView} as prebuilt widgets, which are displayed to the user.
 \end{enumerate}
 
@@ -76,6 +76,7 @@ The \texttt{OpenAI API Manager} is the backend logic which allows the Applicatio
 
 \begin{figure}[!h]
 	\begin{lstlisting}[language=Java]
+    // Extracts Gift Ideas from JSON into Idea() Object
     factory GiftResponse.fromJson(Map<String, dynamic> data) {
         GiftResponse gr = GiftResponse();
         for (Map<String, dynamic> idea in data['presents']) { // Extract "present" objects
@@ -84,7 +85,7 @@ The \texttt{OpenAI API Manager} is the backend logic which allows the Applicatio
         return gr; // Return a GiftResponse() Object containing Ideas()
     }
 
-
+    // Takes a Set of Ideas and returns usable Flutter widgets to display in the app
     List<Widget> cards(Set<Idea> ideas) {
         List<Widget> cards = List.empty(growable: true);
         for (Idea idea in ideas) { // For all Ideas in the List
