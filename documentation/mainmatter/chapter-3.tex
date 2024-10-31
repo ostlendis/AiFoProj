@@ -1,9 +1,7 @@
 \chapter{Implementation: Frontend}
 \label{chapter:implementation-frontend}
 
-To create an Application which can integrate into the daily lifes of someone, we will use the Flutter Technology Stack to create Software which can be accessed from many different platforms. For Developement, we focused on the usage of the Application on an Android Mobile Phone, however if we would like to expand our Application onto different plattforms, it would not require a lot of additional work.
-
-Because we already defined the different Inputs which the user has access to, as described in Chaopter \ref{chapter:introducion}, we could immediately start with Implementation.
+To create an application that integrates into daily life, we will use the Flutter technology stack to develop software accessible across multiple platforms. For development, we have focused on optimizing the application for Android mobile phones. However, if we decide to expand the application to other platforms, it would require minimal additional work.
 
 \begin{figure}[!ht]
 	\centering
@@ -31,25 +29,53 @@ Because we already defined the different Inputs which the user has access to, as
 	\label{fig:architecture}
 \end{figure}
 
-
-Figure~\ref{fig:architecture} describes the planned architecture of the Flutter App. It has two main screens, which the User is guided throug:
+Figure~\ref{fig:architecture} describes the planned architecture of the Flutter App. It has two main screens, which the User is guided through:
 \begin{enumerate}
 	\item In the \texttt{DetailsView}, the User can specify different attributes about the Person they would like to gift something to (furthermore called the Recipient)
-
 	\item As soon as the User submits the Information, all Gift Information is Passed to the \texttt{ResultsView}.
-
-	\item The \texttt{ResultsView} passes the recieved Information to the API Manager, which converts it into a prompt, which is then sent to the OpenAI API.
-
+	\item The \texttt{ResultsView} passes the received Information to the API Manager, which converts it into a prompt, which is then sent to the OpenAI API.
 	\item The OpenAI Assistant processes the Request and returns a Response in Form of a JSON Object. (For more details see Section~\ref{sec:backend})
-
-	\item The API Manager recieves the JSON Object, extracts the relevant Information and sends it to the \texttt{ResultsView} in Form of prebuilt widgets, where they are displayed to the User.
+	\item The API Manager receives the JSON Object, extracts the relevant Information and sends it to the \texttt{ResultsView} in Form of prebuilt widgets, where they are displayed to the User.
 \end{enumerate}
+
+\section*{User Interface}
+
+For the Design, we wanted a simple but clear User Interface. We used the \href{https://m3.material.io/}{Material Design Guidelines} to ensure a consistent Design. At first, we created a basic UI to test the app's core functionality. After developing the initial version of the app, we proceeded to validate the API Manager's ability to convert JSON responses into visually appealing Widgets.
+
+Once the functionality had been confirmed, we focused on refining the User Interface. While not the primary objective of our project, we recognized that an improved UI can significantly enhance the overall user experience. We therefore implemented the following changes:
+
+\begin{itemize}
+\item A small infobox which instructs potential first-time users.
+\item Improved display of input fields for age and hobbies.
+\item The option to specify the Gender when selecting "Other".
+\item Added titles for each Gift Idea to improve overview.
+\item A button to instantly search for a gift on \url{galaxus.ch}
+\end{itemize}
+
+\begin{figure}[!h]
+
+	\begin{subfigure}{0.5\textwidth}
+		\begin{center}
+			\includegraphics[height=7cm]{figures/screenshots/new_details_view_cropped.png}
+		\end{center}
+		\caption{\texttt{DetailsView}}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\begin{center}
+			\includegraphics[height=7cm]{figures/screenshots/new_results_view_cropped.png}
+		\end{center}
+		\caption{\texttt{ResultsView}}
+	\end{subfigure}
+	\caption{Final Version of the Application}
+	\label{fig:finalVersion}
+\end{figure}
 
 \section*{OpenAI API Manager}
 
-The \texttt{OpenAI API Manager} is the backend logic which allows the Application to communicate with the OpenAI Assistant. It provides the functionality to convert User Input into a usable text prompt, as well as convert the recieved JSON into a nice Interface.
+The \texttt{OpenAI API Manager} is the backend logic which allows the Application to communicate with the OpenAI Assistant. It provides the functionality to convert User Input into a usable text prompt, as well as convert the received JSON into a user-friendly interface.
 
-\begin{lstlisting}[language=Java]
+\begin{figure}[!h]
+	\begin{lstlisting}[language=Java]
     factory GiftResponse.fromJson(Map<String, dynamic> data) {
         GiftResponse gr = GiftResponse();
         for (Map<String, dynamic> idea in data['presents']) { // Extract "present" objects
@@ -58,7 +84,7 @@ The \texttt{OpenAI API Manager} is the backend logic which allows the Applicatio
         return gr; // Return a GiftResponse() Object containing Ideas()
     }
 
-    
+
     List<Widget> cards(Set<Idea> ideas) {
         List<Widget> cards = List.empty(growable: true);
         for (Idea idea in ideas) { // For all Ideas in the List
@@ -77,54 +103,5 @@ The \texttt{OpenAI API Manager} is the backend logic which allows the Applicatio
         return cards;
     }
 \end{lstlisting}
-
-\section*{User Interface}
-
-For the Design, we wanted a simple but clear User Interface. We used the  \href{https://m3.material.io/}{Material Design Guidelines} to ensure a consitent Design. At first, we created a simple UI which allows us to test the functionality of the app.
-
-\begin{figure}
-
-	\begin{subfigure}{0.5\textwidth}
-		\includegraphics[width=0.9\linewidth]{figures/screenshots/old_details_view_cropped.png}
-		\caption{\texttt{DetailsView}}
-	\end{subfigure}
-	\begin{subfigure}{0.5\textwidth}
-		\includegraphics[width=0.9\linewidth]{figures/screenshots/old_results_view_cropped.png}
-		\caption{\texttt{ResultsView}}
-	\end{subfigure}
-	\caption{Initial Version of the Application}
-	\label{fig:initialVersion}
+	\caption{Code section responsible for converting JSON into Widgets}
 \end{figure}
-
-After building the First version of the app as shown in Figure \ref{fig:initialVersion}, we proceeded to test the functionality of the API Manager, which provides the conversion from JSON Response to visually appealing Widgets.
-
-Once the functionality has been confirmed, we focused on improving the UI. Although not our main focus of this project, we felt that a better UI can improve the overall impression of the Application significantly. We therefore implemented the following changes:
-
-\begin{itemize}
-	\item A small infobox which instructs potential first-time users.
-
-	\item Improved display of input fields age and hobbies.
-
-	\item The option to specify the Gender when selecting "Other"
-
-	\item Title for each Idea to improve overview
-
-	\item A button to instantly search for a gift on \url{galaxus.ch}
-\end{itemize}
-
-\begin{figure}
-
-	\begin{subfigure}{0.5\textwidth}
-		\includegraphics[width=0.9\linewidth]{figures/screenshots/new_details_view_cropped.png}
-		\caption{\texttt{DetailsView}}
-	\end{subfigure}
-	\begin{subfigure}{0.5\textwidth}
-		\includegraphics[width=0.9\linewidth]{figures/screenshots/new_results_view_cropped.png}
-		\caption{\texttt{ResultsView}}
-	\end{subfigure}
-	\caption{Final Version of the Application}
-	\label{fig:finalVersion}
-\end{figure}
-
-This results in the final version of the App as seen in Figure \ref{fig:finalVersion}.
-
