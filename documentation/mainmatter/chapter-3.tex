@@ -44,6 +44,39 @@ Figure~\ref{fig:architecture} describes the planned architecture of the Flutter 
 	\item The API Manager recieves the JSON Object, extracts the relevant Information and sends it to the \texttt{ResultsView} in Form of prebuilt widgets, where they are displayed to the User.
 \end{enumerate}
 
+\section*{OpenAI API Manager}
+
+The \texttt{OpenAI API Manager} is the backend logic which allows the Application to communicate with the OpenAI Assistant. It provides the functionality to convert User Input into a usable text prompt, as well as convert the recieved JSON into a nice Interface.
+
+\begin{lstlisting}[language=Java]
+    factory GiftResponse.fromJson(Map<String, dynamic> data) {
+        GiftResponse gr = GiftResponse();
+        for (Map<String, dynamic> idea in data['presents']) { // Extract "present" objects
+          gr.ideas.add(Idea(idea["title"], idea['description'])); // Fill information into new Idea() Object
+        }
+        return gr; // Return a GiftResponse() Object containing Ideas()
+    }
+
+    
+    List<Widget> cards(Set<Idea> ideas) {
+        List<Widget> cards = List.empty(growable: true);
+        for (Idea idea in ideas) { // For all Ideas in the List
+            cards.add(Card( // Add a new widget (Flutter Card Widget in this Case)
+            child: ListTile(
+                title: Text(idea.title), // Title
+                subtitle: Text(idea.description), // Description
+                trailing: IconButton( // Shopping Bag Button
+                    onPressed: () {
+                        _launchUrl(
+                            "https://www.galaxus.ch/de/search?searchSectors=0&q=${idea.title}");
+                    },
+                    icon: Icon(Icons.shopping_bag_outlined, color: Colors.green,))),
+            ));
+        }
+        return cards;
+    }
+\end{lstlisting}
+
 \section*{User Interface}
 
 For the Design, we wanted a simple but clear User Interface. We used the  \href{https://m3.material.io/}{Material Design Guidelines} to ensure a consitent Design. At first, we created a simple UI which allows us to test the functionality of the app.
