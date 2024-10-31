@@ -15,7 +15,7 @@ class GiftResponse {
     return gr;
   }
 
-  List<Widget> cards() {
+  List<Widget> cards(Set<Idea> ideas) {
     List<Widget> cards = List.empty(growable: true);
     for (Idea idea in ideas) {
       cards.add(Card(
