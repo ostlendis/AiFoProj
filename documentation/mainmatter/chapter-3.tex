@@ -31,11 +31,11 @@ To create an application that integrates into daily life, we will use the Flutte
 
 Figure~\ref{fig:architecture} describes the planned architecture of the Flutter App. It has two main screens, which the User is guided through:
 \begin{enumerate}
-	\item In the \texttt{DetailsView}, the User can specify different attributes about the Person they would like to gift something to (furthermore called the Recipient)
-	\item As soon as the User submits the Information, all Gift Information is Passed to the \texttt{ResultsView}.
-	\item The \texttt{ResultsView} passes the received Information to the API Manager, which converts it into a prompt, which is then sent to the OpenAI API.
-	\item The OpenAI Assistant processes the Request and returns a Response in Form of a JSON Object. (For more details see Section~\ref{sec:backend})
-	\item The API Manager receives the JSON Object, extracts the relevant Information and sends it to the \texttt{ResultsView} in Form of prebuilt widgets, where they are displayed to the User.
+	\item In the \texttt{DetailsView}, the user specifies various attributes about the person they wish to gift (referred to as the "Recipient").
+	\item When the user submits this information, all gift-related details are passed to the \texttt{ResultsView}.
+	\item The \texttt{ResultsView} then forwards the received information to the API Manager, which formats it into a prompt for the OpenAI API.
+	\item The OpenAI Assistant processes the request and returns a response as a JSON object (see Section~\ref{sec:backend} for more details).
+	\item The API Manager receives the JSON object, extracts the relevant information, and sends it to the \texttt{ResultsView} as prebuilt widgets, which are displayed to the user.
 \end{enumerate}
 
 \section*{User Interface}
@@ -45,11 +45,11 @@ For the Design, we wanted a simple but clear User Interface. We used the \href{h
 Once the functionality had been confirmed, we focused on refining the User Interface. While not the primary objective of our project, we recognized that an improved UI can significantly enhance the overall user experience. We therefore implemented the following changes:
 
 \begin{itemize}
-\item A small infobox which instructs potential first-time users.
-\item Improved display of input fields for age and hobbies.
-\item The option to specify the Gender when selecting "Other".
-\item Added titles for each Gift Idea to improve overview.
-\item A button to instantly search for a gift on \url{galaxus.ch}
+	\item A small infobox which instructs potential first-time users.
+	\item Improved display of input fields for age and hobbies.
+	\item The option to specify the Gender when selecting "Other".
+	\item Added titles for each Gift Idea to improve overview.
+	\item A button to instantly search for a gift on \url{galaxus.ch}
 \end{itemize}
 
 \begin{figure}[!h]
