@@ -1,2 +1,8 @@
 \chapter{Implementation: Backend}
 \label{chapter:implementation-bakend}
+
+In order to make use of ChatGPT in your application so called "assistants" can be used by calling the OpenAI-API.
+We created our assistant under the name ``fabio\_silvan\_giftassistant'' and provided it with system instructions.
+It was instructed to provide 5 gift ideas and to parse the input as constraints accordingly.
+As a model we chose ``gpt-4o-mini'' as it is compatible with json\_schema-formats (see \ref{fig:jsonschema}) and more than capable for our task.
+The json-schema helps control the output format which in turn makes parsing the returned message in our application a lot easier.
