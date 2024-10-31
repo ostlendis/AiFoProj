@@ -8,9 +8,9 @@ The process begins with idea generation and selection based on defined evaluatio
 Our goal was to choose an idea with practical utility—something we would personally use. During brainstorming, we considered common challenges where a large language model (LLM) could assist us. Within a short time, we generated three ideas:
 
 \begin{itemize}
-    \item A food recipe generator that provides recipes based on ingredients available at home (user input).
-    \item A gift idea generator, inspired by the upcoming holiday season, which suggests gifts based on characteristics of the recipient.
-    \item A belt balancer generator for the game \href{https://www.factorio.com}{Factorio}\footnote{Not affiliated with the product; however, we recommend trying it.}.
+	\item A food recipe generator that provides recipes based on ingredients available at home (user input).
+	\item A gift idea generator, inspired by the upcoming holiday season, which suggests gifts based on characteristics of the recipient.
+	\item A belt balancer generator for the game \href{https://www.factorio.com}{Factorio}\footnote{Not affiliated with the product; however, we recommend trying it.}.
 \end{itemize}
 
 Next, we evaluated the practicality and feasibility of each idea. While all were potentially useful, the belt balancer idea presented significant complexity and implementation challenges. A belt balancer in Factorio helps distribute items across multiple input and output belts. Factorio allows players to import such structures as blueprint strings, which are encoded in base64 and compressed using zlib before translating into JSON for in-game structures.
@@ -20,22 +20,25 @@ Although it initially seemed promising, generating a valid belt balancer string 
 We established the following criteria to evaluate the remaining ideas:
 
 \begin{itemize}
-    \item Practical use (weight: 30)
-    \item Ease of implementation (weight: 5)
-    \item Benefit (weight: 20)
-    \item Originality (weight: 10)
+	\item Practical use (weight: 30)
+	\item Ease of implementation (weight: 5)
+	\item Benefit (weight: 20)
+	\item Originality (weight: 10)
 \end{itemize}
-
 \begin{table}[!h]
-    \begin{tabular}{|lllll|r|}
-        \hline
-        Idea                & Practical Use   & Ease of Implementation & Benefit         & Originality     & Total Score  \\
-        \hline
-        Recipe Generator    & 5 * \textbf{30} & 8 * \textbf{5}         & 7 * \textbf{20} & 5 * \textbf{10} & \textbf{400} \\
-        \hline
-        Gift Idea Generator & 7 * \textbf{30} & 8 * \textbf{5}         & 9 * \textbf{20} & 8 * \textbf{10} & \textbf{510} \\
-        \hline
-    \end{tabular}
+	\centering
+	\renewcommand{\arraystretch}{1.3} % Increase row height for readability
+	\begin{tabular}{|l|c|c|c|c|c|}
+		\hline
+		\textbf{Idea}       & \textbf{Practical Use} & \textbf{Ease of Implementation} & \textbf{Benefit}       & \textbf{Originality}   & \textbf{Total Score} \\
+		\hline
+		Recipe Generator    & $5 \times \mathbf{30}$ & $8 \times \mathbf{5}$           & $7 \times \mathbf{20}$ & $5 \times \mathbf{10}$ & \textbf{400}         \\
+		\hline
+		Gift Idea Generator & $7 \times \mathbf{30}$ & $8 \times \mathbf{5}$           & $9 \times \mathbf{20}$ & $8 \times \mathbf{10}$ & \textbf{510}         \\
+		\hline
+	\end{tabular}
+	\caption{Evaluation of Project Ideas}
+	\label{tab:project_idea_evaluation}
 \end{table}
 
 The Gift Idea Generator scored highest, so we selected it as our project.
